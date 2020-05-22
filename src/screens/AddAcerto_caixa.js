@@ -63,7 +63,7 @@ export default class AddSel extends Component   {
                         dados={this.props.dados}
                     />
 
-                        <Text style={styles.header}>Cadastro de Temperaturas</Text>
+                        <Text style={styles.header}>Cadastro de Acerto Caixa</Text>
 
                         <TextInput placeholder="Operador..." style={styles.input}
                             onChangeText={acerto_caixasOperador => this.setState({ acerto_caixasOperador })}

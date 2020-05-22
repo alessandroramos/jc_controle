@@ -7,7 +7,7 @@ import TelaInic from './screens/TelaInic'
 import Auth from './screens/Auth'
 
 
-import Armarios from './screens/Temperaturas'
+import Temperaturas from './screens/Temperaturas'
 import PrestServicos from './screens/Prest_servico'
 import Agendamentos from './screens/Agendamento'
 import Doacaos from './screens/Doacao'
@@ -42,12 +42,12 @@ const MenuNavigator = createDrawerNavigator({
             title: 'Home'
         }
     },
-    Armario:{
-        name: 'Armario',
+    Temperatura:{
+        name: 'Temperatura',
         screen: props => 
-            <Armarios {...props} />,
+            <Temperaturas {...props} />,
         navigationOptions: {
-            title: 'Armario'
+            title: 'Controle deTemperatura'
         }
     },
     PrestServico:{

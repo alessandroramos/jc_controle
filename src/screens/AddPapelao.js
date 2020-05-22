@@ -58,12 +58,12 @@ export default class AddSel extends Component   {
                 </TouchableWithoutFeedback>
                 <ScrollView>
                     <View style={styles.container}>
-                    <Imagens visibleImagens={this.state.showCamera} 
-                        onCancelImagens={this.cancelaImagem}
-                        dados={this.props.dados}
-                    />
+                        <Imagens visibleImagens={this.state.showCamera} 
+                            onCancelImagens={this.cancelaImagem}
+                            dados={this.props.dados}
+                        />
 
-                        <Text style={styles.header}>Cadastro de Papelaos</Text>
+                        <Text style={styles.header}>Cadastro de Papelao</Text>
 
                         <TextInput placeholder="Peso..." style={styles.input}
                             onChangeText={papelaosPeso => this.setState({ papelaosPeso })}
@@ -71,14 +71,12 @@ export default class AddSel extends Component   {
                         <TextInput placeholder="Material..." style={styles.input}
                             onChangeText={papelaosMaterial => this.setState({ papelaosMaterial })}
                             value={this.state.papelaosMaterial} />
-                            value={this.state.papelaosPapelao} />
-                            <TextInput placeholder="Responsavel..." style={styles.input}
+                        <TextInput placeholder="Responsavel..." style={styles.input}
                             onChangeText={papelaosResponsavel => this.setState({ papelaosResponsavel })}
                             value={this.state.papelaosResponsavel} />
                         <TextInput placeholder="Financeiro..." style={styles.input}
                             onChangeText={papelaosFinanceiro => this.setState({ papelaosFinanceiro })}
-                            value={this.state.papelaosFinanceiro} />
-                            
+                            value={this.state.papelaosFinanceiro} />                            
                         <TextInput placeholder="Prevenção..." style={styles.input}
                             onChangeText={papelaosPrevencao => this.setState({ papelaosPrevencao })}
                             value={this.state.papelaosPrevencao} />

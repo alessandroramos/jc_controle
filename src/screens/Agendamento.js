@@ -22,7 +22,7 @@ import Geolocation from 'react-native-geolocation-service'
 import Localizacao from '../components/localizacao'
 
 let dados ={
-    rotinaId: 1,
+    rotinaId: 16,
     sistemaId: 3,
     usersId: null,
     id: null
@@ -45,6 +45,7 @@ export default class Agendamento extends Component {
     componentDidMount = async () => {
         const json = await AsyncStorage.getItem('userData')
         const userData = JSON.parse(json) || {}
+        dados.empresasId = userData.empresasId
         dados.usersId = JSON.stringify(userData.acessos[0].userId)
         this.setState({dados: dados})
     }    
@@ -54,6 +55,7 @@ export default class Agendamento extends Component {
         try {
             const res = await axios.post(`${server}/agendamentos`, {
                 agendamentosDataCadastro: new Date(), 
+                empresas_id: dados.empresasId, 
                 sistemas_id: dados.sistemaId, 
                 rotinas_id: dados.rotinaId,
                 users_id:  dados.usersId
@@ -74,6 +76,7 @@ export default class Agendamento extends Component {
                 localizacaosAccuracy: locData.coords.accuracy,
                 localizacaosSpeed: locData.coords.speed,
 
+                empresas_id: dados.empresasId, 
                 sistemas_id: dados.sistemaId, 
                 rotinas_id: dados.rotinaId,
                 users_id:  dados.usersId,

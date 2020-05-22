@@ -65,7 +65,7 @@ export default class AddSel extends Component   {
                         dados={this.props.dados}
                     />
 
-                        <Text style={styles.header}>Cadastro de Temperaturas</Text>
+                        <Text style={styles.header}>Cadastro de Emprestimo</Text>
 
                         <TextInput placeholder="Equipamento..." style={styles.input}
                             onChangeText={emprestimosEquipamento => this.setState({ emprestimosEquipamento })}

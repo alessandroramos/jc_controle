@@ -22,8 +22,9 @@ import Geolocation from 'react-native-geolocation-service'
 import Localizacao from '../components/localizacao'
 
 let dados ={
-    rotinaId: 4,
+    rotinaId: 17,
     sistemaId: 3,
+    empresasId: null,
     usersId: null,
     id: null
 }  
@@ -45,6 +46,7 @@ export default class Doacao extends Component {
     componentDidMount = async () => {
         const json = await AsyncStorage.getItem('userData')
         const userData = JSON.parse(json) || {}
+        dados.empresasId = userData.empresasId
         dados.usersId = JSON.stringify(userData.acessos[0].userId)
         this.setState({dados: dados})
     }    
@@ -54,6 +56,7 @@ export default class Doacao extends Component {
         try {
             const res = await axios.post(`${server}/doacaos`, {
                 doacaosDataCadastro: new Date(), 
+                empresas_id: dados.empresasId, 
                 sistemas_id: dados.sistemaId, 
                 rotinas_id: dados.rotinaId,
                 users_id:  dados.usersId
@@ -74,6 +77,7 @@ export default class Doacao extends Component {
                 localizacaosAccuracy: locData.coords.accuracy,
                 localizacaosSpeed: locData.coords.speed,
 
+                empresas_id: dados.empresasId, 
                 sistemas_id: dados.sistemaId, 
                 rotinas_id: dados.rotinaId,
                 users_id:  dados.usersId,

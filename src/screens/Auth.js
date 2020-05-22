@@ -33,11 +33,12 @@ export default class Auth extends Component {
                 empresas_id: empresas_id,
                 sistemaId: 2
             })
-            teste = ''
-            for(i=0; i < res.data.acessos.length;i++){
+            let teste = ''
+            for(let i=0; i < res.data.acessos.length;i++){
                 teste = teste = '|| '+i+' || '+res.data.acessos[i].acessos_id+' || ; '
             }
             axios.defaults.headers.common['Authorization'] = `bearer ${res.data.token}`
+//            console.log(res.data)
             AsyncStorage.setItem('userData', JSON.stringify(res.data))
             this.props.navigation.navigate('Home', res.data)
         } catch (err) {

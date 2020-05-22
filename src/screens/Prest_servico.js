@@ -21,8 +21,9 @@ import todayImage from '../../assets/imgs/today.jpg'
 import Geolocation from 'react-native-geolocation-service'
 
 let dados ={
-    rotinaId: 2,
+    rotinaId: 15,
     sistemaId: 3,
+    empresasId: null,
     usersId: null,
     id: null
 }  
@@ -44,7 +45,8 @@ export default class Prest_servico extends Component {
     componentDidMount = async () => {
         const json = await AsyncStorage.getItem('userData')
         const userData = JSON.parse(json) || {}
-        dados.usersId = JSON.stringify(userData.acessos[0].userId)
+        dados.empresasId = userData.empresasId
+        dados.usersId = JSON.stringify(userData.acessos[0].userId)        
         this.setState({dados: dados})
     }    
 //---------------------------------------------------------------------------------------
@@ -53,6 +55,7 @@ export default class Prest_servico extends Component {
         try {
             const res = await axios.post(`${server}/prest_servicos`, {
                 prest_servicosDataCadastro: new Date(), 
+                empresas_id: dados.empresasId, 
                 sistemas_id: dados.sistemaId, 
                 rotinas_id: dados.rotinaId,
                 users_id:  dados.usersId
@@ -73,6 +76,7 @@ export default class Prest_servico extends Component {
                 localizacaosAccuracy: locData.coords.accuracy,
                 localizacaosSpeed: locData.coords.speed,
 
+                empresas_id: dados.empresasId, 
                 sistemas_id: dados.sistemaId, 
                 rotinas_id: dados.rotinaId,
                 users_id:  dados.usersId,

@@ -54,6 +54,7 @@ const Imagens = ({visibleImagens, onCancelImagens, dados}) => {
                 const res = await axios.post(`${server}/imagens`, {
                     imagensDataCadastro: new Date(), 
                     imagensDataUpdate: new Date(), 
+                    empresas_id: dados.empresasId, 
                     sistemas_id: dados.sistemaId, 
                     rotinas_id: dados.rotinaId,
                     tabela_id:  dados.id,
@@ -65,9 +66,7 @@ const Imagens = ({visibleImagens, onCancelImagens, dados}) => {
             setImage (null)
         }else{
             showError(' Erro: Não a imagem para enviar!')
-        }
-    
-
+        } 
     }
     
 
